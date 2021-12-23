@@ -29,8 +29,8 @@ Each channel on the server has a channel description which briefly describes the
 
 # General Help Channels
 
-Our general help channels cycle quickly, with the advantage of attracting a more diverse spectrum of helpers, and getting individual attention and help for your question. These channels are a great choice for generic Python questions, but they can be used for domain-specific Python help as well. 
-Be sure to [ask good questions](../asking-good-questions) in order to give yourself the best chances of getting help. 
+Our general help channels cycle quickly, with the advantage of attracting a more diverse spectrum of helpers, and getting individual attention and help for your question. These channels are a great choice for generic Python questions, but they can be used for domain-specific Python help as well.
+Be sure to [ask good questions](../asking-good-questions) in order to give yourself the best chances of getting help.
 
 ## How To Claim a Channel
 
@@ -66,9 +66,9 @@ Go ahead and move your channel to the dormant category by running the `!closed` 
 
 ## Q: Can only Helpers answer help questions?
 
-Definitely not! We encourage all members of the community to participate in giving help. If you'd like to help answer some questions, head over to the **Occupied Help Channels** or **Topical Chat/Help** categories. 
+Definitely not! We encourage all members of the community to participate in giving help. If you'd like to help answer some questions, head over to the **Occupied Help Channels** or **Topical Chat/Help** categories.
 
-Before jumping in, please read our guide on [helping others](../helping-others) which explains our expectations for the culture and quailty of help that we aim for on the server.  
+Before jumping in, please read our guide on [helping others](../helping-others) which explains our expectations for the culture and quailty of help that we aim for on the server.
 
 ## Q: I lost my help channel!
 
