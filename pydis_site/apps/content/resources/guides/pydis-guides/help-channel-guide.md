@@ -40,7 +40,7 @@ There are always three help channels waiting to be claimed in the **Available He
 ![Available message](/static/images/content/help_channels/available_message.png)
 *This message indicates that a channel is available.*
 
-In order to claim one, simply ask your question into one of the available channels. Be sure to [ask good questions](../asking-good-questions) in order to give yourself the best chances of getting help!
+In order to claim one, simply ask your question in one of the available channels. Be sure to [ask good questions](../asking-good-questions) in order to give yourself the best chances of getting help!
 
 ![Channel claimed embed](/static/images/content/help_channels/claimed_channel.png)
 *This messages indicates that you've claimed the channel.*
