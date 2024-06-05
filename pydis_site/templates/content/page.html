@@ -1,13 +1,5 @@
 {% extends 'content/base.html' %}
 
-{% block head %}
-    {{ block.super }}
-    <link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/atom-one-dark.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-{% endblock %}
-
 {% block page_content %}
     {% if relevant_links or toc %}
         <div class="columns is-variable is-8">
@@ -16,7 +8,7 @@
             </div>
             <div class="column">
                 {% if toc %}
-                    <div class="box">
+                    <div class="box has-background-white-bis">
                         <p class="menu-label">Table of Contents</p>
                         <ul class="menu-list toc">
                             {{ toc|safe }}

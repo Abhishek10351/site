@@ -23,6 +23,20 @@ main.site-content {
     padding-right: 0.8em;
 }
 
+[data-theme="dark"] .navbar.is-primary {
+    background-color: #3B4774;
+}
+
+/* No good way other than this for now, because the item hover background setting
+ * applies only for a navbar without is-primary.
+ */
+@media screen and (min-width: 1024px) {
+    [data-theme="dark"] .navbar.is-primary .navbar-end > a.navbar-item:hover,
+    [data-theme="dark"] .navbar.is-primary .navbar-item.has-dropdown:hover .navbar-link {
+        background-color: #455382;
+    }
+}
+
 .navbar-item .navbar-link {
     padding-left: 1.5em;
     padding-right: 2.5em;
@@ -54,9 +68,12 @@ main.site-content {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
     background-color: #697ec4ff;
-    margin-left: 0.5rem;
     transition: all 0.2s cubic-bezier(.25,.8,.25,1);
     overflow: hidden;
+}
+
+[data-theme="dark"] #discord-btn a {
+    background-color: #58689cff;
 }
 
 #discord-btn:hover a {
@@ -71,36 +88,37 @@ main.site-content {
 }
 
 #linode-logo {
-    padding-left: 15px;
-    background: url(https://www.linode.com/wp-content/uploads/2021/01/Linode-Logo-Black.svg) no-repeat center;
-    filter: invert(1) grayscale(1);
-    background-size: 60px;
+    padding-left: 5px;
+    background: url(/static/images/sponsors_dark/linode_text.png) no-repeat center;
+    background-size: 49px;
+    background-position: 2px center;
     color: #00000000;
 }
 
 #netcup-logo {
     padding-left: 15px;
-    background: url(https://www.netcup-wiki.de/static/assets/images/netcup_logo_white.svg) no-repeat center;
+    padding-bottom: 3px;
+    background: url(/static/images/sponsors/netcup-white.svg) no-repeat center;
     background-size: 60px;
-    background-position: 0px 3px;
+    background-position: 2px 4px;
     color: #00000000;
 }
 
 #django-logo {
-    padding-bottom: 2px;
-    background: url(https://static.djangoproject.com/img/logos/django-logo-negative.svg) no-repeat center;
-    filter: grayscale(1) invert(0.09);
-    background-size: 52px 25.5px;
-    background-position: -2px -1px;
+    padding-bottom: 4px;
+    padding-left: 5px;
+    background: url(/static/images/events/logos_dark/django.png) no-repeat center;
+    background-size: 56px;
+    background-position: -1px 1px;
     color: #00000000;
 }
 
 #bulma-logo {
-    padding-left: 18px;
+    padding-left: 8px;
     height: 20px;
-    background: url(https://bulma.io/images/bulma-logo-white.png) no-repeat center;
-    background-size: 60px;
-    background-position: 0px 3px;
+    background: url(https://bulma.io/assets/brand/Bulma%20Wordmark%20White.png) no-repeat center;
+    background-size: 47px;
+    background-position: center center;
     color: #00000000;
 }
 
@@ -167,4 +185,17 @@ button.is-size-navbar-menu, a.is-size-navbar-menu {
     html {
         scroll-behavior: auto;
     }
+}
+
+[data-theme="dark"] .button.is-primary:hover, .button.is-primary.is-hovered,
+[data-theme="dark"] .button.is-link:hover, .button.is-link.is-hovered {
+    background-color: #6276BC;
+}
+
+[data-theme="dark"] .light-image {
+    display: none;
+}
+
+[data-theme="light"] .dark-image {
+    display: none;
 }

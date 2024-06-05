@@ -24,12 +24,17 @@
   <title>Python Discord | {% block title %}Website{% endblock %}</title>
 
   {% bulma %}
-  {% font_awesome %}
+  {% bulma 'dark' include_js=False %}
+
+  <link href="{% static 'fontawesome/css/all.min.css' %}" rel="stylesheet" type="text/css">
+
   <link rel="stylesheet" href="{% static "css/base/base.css" %}">
   {% block head %}{% endblock %}
 
 </head>
-<body class="site">
+<!-- The tabindex attribute fixes the inability to toggle the navbar dropdown
+  -- on touchscreens using Safari. -->
+<body class="site" tabindex="-1">
   <!-- Git hash for this release: {{ git_sha }} -->
 
 <main class="site-content">

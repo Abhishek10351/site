@@ -37,7 +37,7 @@ i.has-icon-padding {
     display: none;
 }
 #tab-content p.is-active {
-display: block;
+    display: block;
 }
 
 /* Disable highlighting for all text in the filters. */
@@ -73,6 +73,11 @@ display: block;
     margin-right: 0.25em !important;
 }
 
+/* Style the search bar */
+#resource-search {
+    margin: 0.25em 0.25em 0 0.25em;
+}
+
 /* Center the 404 div */
 .no-resources-found {
     display: none;
@@ -84,6 +89,35 @@ display: block;
 /* Make sure jQuery will use flex when setting `show()` again. */
 .no-resources-found[style*='display: block'] {
     display: flex !important;
+}
+
+/* By default, we hide the search tag. We'll add it only when there's a search happening. */
+.tag.search-query {
+    display: none;
+    min-width: fit-content;
+    max-width: fit-content;
+    padding-right: 2em;
+}
+.tag.search-query .inner {
+    display: inline-block;
+    padding: 0;
+    max-width: 16.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 2em;
+}
+.tag.search-query i {
+    margin: 0 !important;
+    display: inline-block;
+    line-height: 2em;
+    float: left;
+    padding-right: 1em;
+}
+
+/* Don't allow the tag pool to exceed its parent containers width. */
+#tag-pool {
+    max-width: 100%;
 }
 
 /* Disable clicking on the checkbox itself. */
@@ -120,11 +154,14 @@ i.is-primary {
 }
 
 /* When hovering title anchors, just make the color a lighter primary, not black. */
-.resource-box a:hover {
+[data-theme="light"] .resource-box a:hover {
     filter: brightness(120%);
     color: #7289DA;
 }
 
+[data-theme="dark"] .resource-box a:hover {
+    color: white;
+}
 
 /* Set default display to inline-flex, for centering. */
 span.filter-box-tag {
@@ -162,26 +199,31 @@ button.delete {
 }
 
 /* Colors for delete button x's */
-button.delete.is-primary::before,
-button.delete.is-primary::after {
+[data-theme="light"] button.delete.is-primary::before,
+[data-theme="light"] button.delete.is-primary::after {
     background-color: #2a45a2;
 }
-button.delete.is-success::before,
-button.delete.is-success::after {
+[data-theme="light"] button.delete.is-success::before,
+[data-theme="light"] button.delete.is-success::after {
     background-color: #2c9659;
 }
-button.delete.is-danger::before,
-button.delete.is-danger::after {
+[data-theme="light"] button.delete.is-danger::before,
+[data-theme="light"] button.delete.is-danger::after {
     background-color: #c32841;
 }
-button.delete.is-info::before,
-button.delete.is-info::after {
+[data-theme="light"] button.delete.is-info::before,
+[data-theme="light"] button.delete.is-info::after {
     background-color: #237fbd;
+}
+[data-theme="dark"] button.delete::before,
+[data-theme="dark"] button.delete::after {
+    background-color: #FFFFFF;
 }
 
 /* Give outlines to active tags */
 span.filter-box-tag,
-span.resource-tag.active {
+span.resource-tag.active,
+.tag.search-query {
     outline-width: 1px;
     outline-style: solid;
 }
@@ -244,6 +286,9 @@ span.resource-tag.active.has-background-info-light {
     .filter-panel {
         padding-top: 4px;
         padding-bottom: 4px;
+    }
+    .tag.search-query .inner {
+        max-width: 16.2rem;
     }
 }
 

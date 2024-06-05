@@ -16,27 +16,43 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script defer src="{% static "js/resources/resources.js" %}"></script>
     <script defer src="{% static "js/collapsibles.js" %}"></script>
+    <script defer src="{% static "js/fuzzysort/fuzzysort.js" %}"></script>
 {% endblock %}
 
 {% block content %}
     {% include "base/navbar.html" %}
     <input type="hidden" id="resource-type-input" value="{{ resource_type }}">
-    <section class="section">
+    <section class="section has-text-danger">
         <div class="columns is-variable is-6 is-centered">
             {# Filtering toolbox #}
             <div class="column filtering-column is-one-third">
                 <div class="content is-justify-content-center">
                     <nav id="resource-filtering-panel" class="panel is-primary">
-                        <p class="panel-heading has-text-centered" id="filter-panel-header">Filter Resources</p>
+                        <p class="panel-heading has-text-centered" id="filter-panel-header">Filter resources</p>
+
+                        {# Search bar #}
+                        <p id="resource-search" class="control has-icons-left">
+                            <input class="input" placeholder="Search resources ">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-magnifying-glass"></i>
+                            </span>
+                        </p>
+
 
                         {# Filter box tags #}
-                        <div class="card filter-tags">
+                        <div class="card filter-tags is-white has-background-white">
                             <div class="is-flex ml-auto">
-                                <div>
+                                <div id="tag-pool">
                                     {# A filter tag for when there are no filters active #}
-                                    <span class="no-tags-selected tag has-background-disabled has-text-disabled ml-2 mt-2">
-                                            <i class="fas fa-ban mr-1"></i>
+                                    <span class="tag no-tags-selected is-secondary ml-2 mt-2 has-background-white-ter">
+                                            <i class="fas fa-fw fa-ban mr-1"></i>
                                             No filters selected
+                                    </span>
+
+                                    {# A filter tag for search queries #}
+                                    <span class="tag search-query is-secondary ml-2 mt-2">
+                                            <i class="fas fa-fw fa-magnifying-glass mr-1"></i>
+                                            <span class="tag inner">Search: ...</span>
                                     </span>
 
                                     {% for filter_name, filter_data in filters.items %}
@@ -69,7 +85,7 @@
                                                         data-filter-name="{{ filter_name|to_kebabcase }}"
                                                         data-filter-item="{{ filter_item|to_kebabcase }}"
                                                 >
-                                                        <i class="{{ filter_item|title|get_category_icon }} mr-1"></i>
+                                                        <i class="{{ filter_item|title|get_category_icon }} mr-1 is-danger"></i>
                                                         {{ filter_item|title }}
                                                         <button class="delete is-small is-danger has-background-danger-light"></button>
                                                     </span>
@@ -100,7 +116,7 @@
 
                         {# Filter checkboxes #}
                         {% for filter_name, filter_data in filters.items %}
-                            <div class="card filter-category-header">
+                            <div class="card filter-category-header has-background-white">
                                 <button type="button" class="card-header collapsible">
                                     <span class="card-header-title subtitle is-6 my-2 ml-2">
                                         <i class="fa-fw {{ filter_data.icon }} is-primary" aria-hidden="true"></i>&nbsp&nbsp{{ filter_name }}
@@ -122,7 +138,7 @@
                             {% endif %}
                                     <div class="card-content">
                                         {% for filter_item in filter_data.filters %}
-                                            <a class="panel-block filter-panel">
+                                            <a class="panel-block filter-panel panel-primary">
                                                 <label class="checkbox">
                                                     <input
                                                             class="filter-checkbox"
@@ -140,6 +156,9 @@
                         {% endfor %}
                     </nav>
                 </div>
+                <div class="content has-text-grey is-hidden-mobile">
+                    <p>Want to suggest more resources? <a href="https://github.com/python-discord/meta/issues/new?assignees=&labels=area%3A+resources&projects=&template=resource-request.yaml">Open an issue on GitHub</a>.</p>
+                </div>
             </div>
 
             <div class="column is-two-thirds">
@@ -152,11 +171,14 @@
 
                 {# Resource cards #}
                 <div class="content is-flex is-justify-content-center">
-                    <div>
+                    <div class="container is-fullwidth">
                         {% for resource in resources.values %}
                             {% include "resources/resource_box.html" %}
                         {% endfor %}
                     </div>
+                </div>
+                <div class="content has-text-grey is-hidden-tablet">
+                    <p>Want to suggest more resources? <a href="https://github.com/python-discord/meta/issues/new?assignees=&labels=area%3A+resources&projects=&template=resource-request.yaml">Open an issue on GitHub</a>.</p>
                 </div>
             </div>
         </div>
